@@ -71,4 +71,4 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
 #Azure config asset
-/Assets/AzureSpatialAnchors.SDK/Resources/SpatialAnchorConfig.asset
+/[Aa]ssets/[Aa]zureSpatialAnchors.SDK/[Rr]esources/
