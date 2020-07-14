@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 848409ee8ba454f42a5ddff137688a27, type: 3}
+  m_Name: ReferenceImageLibrary
+  m_EditorClassIdentifier: 
+  m_GuidLow: 5676948541158581103
+  m_GuidHigh: 542769623938640828
+  m_Images:
+  - m_SerializedGuid:
+      m_GuidLow: 5620716640934729463
+      m_GuidHigh: 17598753166888920247
+    m_SerializedTextureGuid:
+      m_GuidLow: 14161822617082218796
+      m_GuidHigh: 926094332298155450
+    m_Size: {x: 0, y: 0}
+    m_SpecifySize: 0
+    m_Name: kroger_logo
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 4846633269025677573
+      m_GuidHigh: 15101197214895474844
+    m_SerializedTextureGuid:
+      m_GuidLow: 16469002160591420072
+      m_GuidHigh: 7617305525301683592
+    m_Size: {x: 0, y: 0}
+    m_SpecifySize: 0
+    m_Name: bread
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5028435224665675429
+      m_GuidHigh: 16216490728552160647
+    m_SerializedTextureGuid:
+      m_GuidLow: 7263055512629493327
+      m_GuidHigh: 13886926677381781963
+    m_Size: {x: 0, y: 0}
+    m_SpecifySize: 0
+    m_Name: chips
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5609456634436076276
+      m_GuidHigh: 270342876943903362
+    m_SerializedTextureGuid:
+      m_GuidLow: 1479396929195147525
+      m_GuidHigh: 9238115309899659672
+    m_Size: {x: 0, y: 0}
+    m_SpecifySize: 0
+    m_Name: corn
+    m_Texture: {fileID: 0}
