@@ -1,4 +1,0 @@
-4e0a96f7cc014e00b7e4315ac3543bf4|Assets/Images/kroger_logo.png
-94dda105b34743429c88f67cdb3a92d1|Assets/Images/bread.jpg
-ee4256a5973145c8875dc422668c0ce1|Assets/Images/chips.jpg
-be8542f4cb164dd8826acc0b6a73c003|Assets/Images/corn.jpg
