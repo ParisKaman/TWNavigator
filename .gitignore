@@ -74,7 +74,7 @@ crashlytics-build.properties
 /[Aa]ssets/[Aa]zureSpatialAnchors.SDK/[Rr]esources/*
 
 # OS generated files
-*.DS_Store
+**/.DS_Store
 
 # Streaming Assets
 /[Aa]ssets/[Ss]treamingAssets/*
