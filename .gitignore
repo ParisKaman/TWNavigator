@@ -72,3 +72,9 @@ crashlytics-build.properties
 
 #Azure config asset
 /[Aa]ssets/[Aa]zureSpatialAnchors.SDK/[Rr]esources/*
+
+# OS generated files
+*.DS_Store
+
+# Streaming Assets
+/[Aa]ssets/[Ss]treamingAssets/*
