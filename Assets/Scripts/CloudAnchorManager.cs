@@ -334,10 +334,8 @@ public class CloudAnchorManager : MonoBehaviour
 
     public async Task CreateCloudAnchor(CloudSpatialAnchor cloudSpatialAnchor)
     {
-      ARTapToPlace arTapManager = FindObjectOfType<ARTapToPlace>();
-      TextProOnACircle tpoac = arTapManager.spawnedObject.transform.Find("Anchor Text").GetComponent<TextProOnACircle>();
-      // Destroy(tpoac);
-      // arTapManager.spawnedObject.transform.Find("Anchor Text").gameObject.AddComponent<TextProOnACircle>();
+        ARTapToPlace arTapManager = FindObjectOfType<ARTapToPlace>();
+        TextProOnACircle tpoac = arTapManager.spawnedObject.transform.Find("Anchor Text").GetComponent<TextProOnACircle>();
 
 
         debugText.text = "Trying to create Cloud Anchor " + cloudSpatialAnchor.Identifier;
@@ -354,18 +352,6 @@ public class CloudAnchorManager : MonoBehaviour
             await Task.Delay(330);
             float createProgress = spatialAnchorManager.SessionStatus.RecommendedForCreateProgress;
             topText.text = $"Move your device to capture more environment data: {createProgress:0%}";
-            TMP_Text containerText = tpoac.gameObject.GetComponent<TMP_Text>();
-            if(tpoac != null){
-              Debug.Log("tpoac exists");
-              Debug.Log("Anchor : " + containerText.text);
-              Debug.Log("tpoac radius" + tpoac.m_radius);
-              Debug.Log("tpoac arcDegrees" + tpoac.m_arcDegrees);
-              Debug.Log("tpoac angularOffset" + tpoac.m_angularOffset);
-            }
-            else{
-              Debug.Log("tpoac does not exist");
-            }
-
         }
         debugText.text = "\nMade it out";
 
