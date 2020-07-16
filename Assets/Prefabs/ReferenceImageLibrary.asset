@@ -21,8 +21,8 @@ MonoBehaviour:
     m_SerializedTextureGuid:
       m_GuidLow: 14161822617082218796
       m_GuidHigh: 926094332298155450
-    m_Size: {x: 0, y: 0}
-    m_SpecifySize: 0
+    m_Size: {x: 1, y: 0.54068625}
+    m_SpecifySize: 1
     m_Name: kroger_logo
     m_Texture: {fileID: 0}
   - m_SerializedGuid:
@@ -31,8 +31,8 @@ MonoBehaviour:
     m_SerializedTextureGuid:
       m_GuidLow: 16469002160591420072
       m_GuidHigh: 7617305525301683592
-    m_Size: {x: 0, y: 0}
-    m_SpecifySize: 0
+    m_Size: {x: 1, y: 0.6666667}
+    m_SpecifySize: 1
     m_Name: bread
     m_Texture: {fileID: 0}
   - m_SerializedGuid:
@@ -41,8 +41,8 @@ MonoBehaviour:
     m_SerializedTextureGuid:
       m_GuidLow: 7263055512629493327
       m_GuidHigh: 13886926677381781963
-    m_Size: {x: 0, y: 0}
-    m_SpecifySize: 0
+    m_Size: {x: 1, y: 0.66625}
+    m_SpecifySize: 1
     m_Name: chips
     m_Texture: {fileID: 0}
   - m_SerializedGuid:
@@ -51,7 +51,7 @@ MonoBehaviour:
     m_SerializedTextureGuid:
       m_GuidLow: 1479396929195147525
       m_GuidHigh: 9238115309899659672
-    m_Size: {x: 0, y: 0}
-    m_SpecifySize: 0
+    m_Size: {x: 1, y: 0.6830065}
+    m_SpecifySize: 1
     m_Name: corn
     m_Texture: {fileID: 0}

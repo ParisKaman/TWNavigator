@@ -374,11 +374,14 @@ public class CloudAnchorManager : MonoBehaviour
 
     public void requestSensorPermissions()
     {
+        #if UNITY_ANDROID
         RequestPermissionIfNotGiven(Permission.FineLocation);
         RequestPermissionIfNotGiven(Permission.CoarseLocation);
 
         RequestPermissionIfNotGiven(androidWifiAccessPermission);
         RequestPermissionIfNotGiven(androidWifiChangePermission);
+        #endif
+
     }
 
     private static void RequestPermissionIfNotGiven(string permission)
