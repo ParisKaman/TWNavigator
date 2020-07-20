@@ -53,22 +53,23 @@ public class ARTapToPlace : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        UpdatePlacementPose();
         inUpdateMethod = false;
+        UpdatePlacementPose();
         UpdatePlacementIndicator();
+        UpdateAnchorRenderer();
 
         EventSystem eventSystem = FindObjectOfType<EventSystem>();
         movingAnchor = false;
-        if (Input.touchCount > 0)
+        if (Input.touchCount == 1)
         {
             //if touching UI element, ignore touch
             if (eventSystem == null || !eventSystem.IsPointerOverGameObject(Input.GetTouch(0).fingerId))
             {
-                if (isPlacementValid && Input.touchCount > 1)
+                if (isPlacementValid && inCreateAnchor && Input.GetTouch(0).phase != TouchPhase.Ended)
                 {
-                    PlaceObject();
+                      PlaceObject();
                 }
-                if (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Began)
+                if (Input.GetTouch(0).phase == TouchPhase.Began && !inCreateAnchor)
                 {
                     attemptAnchorSelect();
                 }
@@ -165,6 +166,26 @@ public class ARTapToPlace : MonoBehaviour
     public void EnableIndicator(bool enabled)
     {
       inCreateAnchor = enabled;
+    }
+
+    private void UpdateAnchorRenderer()
+    {
+      if(spawnedObject == null)
+      {
+        return;
+      }
+
+
+      if(inCreateAnchor)
+      {
+        //render
+        spawnedObject.SetActive(true);
+      }
+      else
+      {
+        //hide anchor
+        spawnedObject.SetActive(false);
+      }
     }
 
     public async void DeleteAnchor()
