@@ -281,20 +281,6 @@ public class CloudAnchorManager : MonoBehaviour
                 }
             }
         }
-        //try
-        //{
-        //    CloudSpatialAnchor csa = await spatialAnchorManager.Session.GetAnchorPropertiesAsync(ID);
-        //    if(currentCloudAnchor == null || csa.Identifier != currentCloudAnchor.Identifier)
-        //    {
-        //        previousCloudAnchor = currentCloudAnchor;
-        //        currentCloudAnchor = csa;
-        //    }
-
-        //}
-        //catch (Exception ex)
-        //{
-        //    debugText.text = ex.Message;
-        //}
     }
 
     async public void deleteAllCloudAnchors()

@@ -70,8 +70,6 @@ public class UIManager : MonoBehaviour
 
     public void destinationReachedUI()
     {
-        //toggleDefaultUI();
-        //toggleDestinationReachedUI();
         SetActiveCanvas(destinationReachedCanvas);
         string nextStop = navManager.getNextStop();
         destinationReachedCanvas.transform.Find("Panel").Find("Message Container").Find("Next Stop").GetComponent<TMP_Text>().text = nextStop;
@@ -79,15 +77,11 @@ public class UIManager : MonoBehaviour
 
     public void confirmDestination()
     {
-        //toggleDestinationReachedUI();
-        //toggleDefaultUI();
         SetActiveCanvas(defaultUICanvas);
     }
 
     public void beginWayfinding()
     {
-        //toggleWayfindUI();
-        //toggleDefaultUI();
         SetActiveCanvas(wayfindUICanvas);
         navManager.BeginWayfind(dropdownHandler.dropdownList[0].options[dropdownHandler.dropdownList[0].value].text);
         dropdownHandler.currentDropdown = dropdownHandler.dropdownList[0];
@@ -100,15 +94,11 @@ public class UIManager : MonoBehaviour
         arTapManager.PlaceAnchor(anchorLabel);
 
         //hide label UI canvas and return to show default UI canvas
-        //toggleLabelUI();
-        //toggleDefaultUI();
         SetActiveCanvas(defaultUICanvas);
     }
 
     public void cancelDelete()
     {
-        //toggleDeleteUI();
-        //toggleDefaultUI();
         SetActiveCanvas(defaultUICanvas);
         cloudAnchorManager.cancelDelete();
     }
@@ -116,16 +106,12 @@ public class UIManager : MonoBehaviour
     public void deleteAnchor()
     {
         cloudAnchorManager.deleteCurrentCloudAnchor();
-        //toggleDeleteUI();
-        //toggleDefaultUI();
         SetActiveCanvas(defaultUICanvas);
     }
 
     public void defaultToDelete()
     {
         HideSideMenu();
-        //toggleDefaultUI();
-        //toggleDeleteUI();
         SetActiveCanvas(deleteUICanvas);
         displayAnchorToDelete();
         cloudAnchorManager.hoverDelete();
@@ -149,8 +135,6 @@ public class UIManager : MonoBehaviour
     public void defaultToLabel()
     {
         HideSideMenu();
-        //toggleDefaultUI();
-        //toggleLabelUI();
         SetActiveCanvas(labelUICanvas);
         arTapManager.EnableIndicator(true);
     }
@@ -158,8 +142,6 @@ public class UIManager : MonoBehaviour
     public void defaultToWayfind()
     {
         HideSideMenu();
-        //toggleDefaultUI();
-        //toggleWayfindUI();
         SetActiveCanvas(wayfindUICanvas);
         dropdownHandler.populateList();
     }
@@ -172,51 +154,6 @@ public class UIManager : MonoBehaviour
             menuHandler.HideMenuPanel();
         }
 
-    }
-
-    private void toggleDeleteUI()
-    {
-        if(deleteUICanvas != null)
-        {
-            bool isActive = deleteUICanvas.gameObject.activeSelf;
-            deleteUICanvas.gameObject.SetActive(!isActive);
-        }
-    }
-
-    private void toggleDestinationReachedUI()
-    {
-        if (destinationReachedCanvas != null)
-        {
-            bool isActive = destinationReachedCanvas.gameObject.activeSelf;
-            destinationReachedCanvas.gameObject.SetActive(!isActive);
-        }
-    }
-
-    private void toggleWayfindUI()
-    {
-        if(wayfindUICanvas != null)
-        {
-            bool isActive = wayfindUICanvas.gameObject.activeSelf;
-            wayfindUICanvas.gameObject.SetActive(!isActive);
-        }
-    }
-
-    private void toggleDefaultUI()
-    {
-        if(defaultUICanvas != null)
-        {
-            bool isActive = defaultUICanvas.gameObject.activeSelf;
-            defaultUICanvas.gameObject.SetActive(!isActive);
-        }
-    }
-
-    private void toggleLabelUI()
-    {
-        if (defaultUICanvas != null)
-        {
-            bool isActive = labelUICanvas.gameObject.activeSelf;
-            labelUICanvas.gameObject.SetActive(!isActive);
-        }
     }
 
     // Update is called once per frame

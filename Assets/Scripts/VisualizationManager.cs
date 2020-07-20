@@ -11,27 +11,19 @@ public class VisualizationManager : MonoBehaviour
     private LineRenderer planeLineRenderer;
     private ARPlaneMeshVisualizer planeMeshVizualizer;
 
-    [SerializeField]
-    private ARPointCloudManager arPointCloudManager;
-    private GameObject pointCloudPrefab;
-    private ARPointCloudParticleVisualizer pointCloudVisualizer;
-
     // Start is called before the first frame update
     void Start()
     {
         planePrefab = arPlaneManager.planePrefab;
-        pointCloudPrefab = arPointCloudManager.pointCloudPrefab;
         planeLineRenderer = planePrefab.GetComponent<LineRenderer>();
         planeMeshVizualizer = planePrefab.GetComponent<ARPlaneMeshVisualizer>();
-        pointCloudVisualizer = pointCloudPrefab.GetComponent<ARPointCloudParticleVisualizer>();
         DisablePlanes();
-        DisablePointCloud();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void DisablePlanes()
@@ -40,25 +32,11 @@ public class VisualizationManager : MonoBehaviour
         planeMeshVizualizer.enabled = false;
     }
 
-    private void DisablePointCloud()
-    {
-        pointCloudVisualizer.enabled = false;
-        Debug.Log("Point Cloud Visualizer = false");
-        //arPointCloudManager.enabled = false;
-    }
-
     private void TogglePlanes()
     {
         planeLineRenderer.enabled = !planeLineRenderer.enabled;
         planeMeshVizualizer.enabled = !planeMeshVizualizer.enabled;
         SetAllPlanesActive(planeMeshVizualizer.enabled);
-    }
-
-    private void TogglePointCloud()
-    {
-        pointCloudVisualizer.enabled = !pointCloudVisualizer.enabled;
-        Debug.Log("Point Cloud Visualizer = " + pointCloudVisualizer.enabled);
-        //arPointCloudManager.enabled = !arPointCloudManager.enabled;
     }
 
     private void SetAllPlanesActive(bool value)
@@ -71,7 +49,6 @@ public class VisualizationManager : MonoBehaviour
 
     public void ToggleAllVisualizers()
     {
-        //TogglePointCloud();
         TogglePlanes();
     }
 }

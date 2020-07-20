@@ -6,29 +6,6 @@ using UnityEngine.UI;
 
 public class ButtonColorSynchronizer : UnityEngine.UI.Button
 {
-    // public Image image;
-    //
-    // public Button button;
-    //
-    // private TMP_Text text;
-    // private Color activeColor;
-    // private
-    //
-    // // Start is called before the first frame update
-    // void Start()
-    // {
-    //     text = GetComponent<TMP_Text>();
-    //     activeColor = button.colors.normalColor;
-    // }
-    //
-    // // Update is called once per frame
-    // void Update()
-    // {
-    //   if(button.SelectionState.Highlighted){
-    //     activeColor = button.colors.highlightedColor;
-    //   }
-    //   text.color = activeColor;
-    // }
 
     TMP_Text text;
 
