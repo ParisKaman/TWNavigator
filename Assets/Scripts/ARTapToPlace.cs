@@ -33,6 +33,7 @@ public class ARTapToPlace : MonoBehaviour
     volatile public bool tryingToUpdate;
     public bool inUpdateMethod;
     public bool validAtIndicatorStart;
+    private bool movingAnchor;
     public Text topText;
 
     // Start is called before the first frame update
@@ -46,6 +47,7 @@ public class ARTapToPlace : MonoBehaviour
         isPlacementValid = false;
         tryingToUpdate = false;
         inCreateAnchor = false;
+        movingAnchor = false;
     }
 
     // Update is called once per frame
@@ -56,12 +58,13 @@ public class ARTapToPlace : MonoBehaviour
         UpdatePlacementIndicator();
 
         EventSystem eventSystem = FindObjectOfType<EventSystem>();
-
+        movingAnchor = false;
         if (Input.touchCount > 0)
         {
+            //if touching UI element, ignore touch
             if (eventSystem == null || !eventSystem.IsPointerOverGameObject(Input.GetTouch(0).fingerId))
             {
-                if (isPlacementValid && Input.touchCount > 1 && Input.GetTouch(1).phase == TouchPhase.Began)
+                if (isPlacementValid && Input.touchCount > 1)
                 {
                     PlaceObject();
                 }
@@ -179,8 +182,20 @@ public class ARTapToPlace : MonoBehaviour
 
     private void PlaceObject()
     {
-        //instantiate objectToPlace at the placement location + a little bit so it doesn't clip ground plane too badly
-        spawnedObject = Instantiate(objectToPlace, placementPose.position + new Vector3(0, 0.05f, 0), placementPose.rotation);
+        if(spawnedObject == null)
+        {
+          //instantiate objectToPlace at the placement location
+          spawnedObject = Instantiate(objectToPlace, placementPose.position, placementPose.rotation);
+        }
+        else
+        {
+          //anchor already exists, so we move it instead
+          spawnedObject.transform.position = placementPose.position;
+          spawnedObject.transform.rotation = placementPose.rotation;
+          movingAnchor = true;
+          return;
+        }
+
 
         //Add a cloudNativeAnchor component to the gameobject so that the manager can track it
         spawnedObject.AddComponent<CloudNativeAnchor>();
@@ -196,7 +211,7 @@ public class ARTapToPlace : MonoBehaviour
     {
         inUpdateMethod = true;
 
-        if (isPlacementValid && inCreateAnchor)
+        if (isPlacementValid && inCreateAnchor && !movingAnchor)
         {
             tryingToUpdate = true;
             indicator.SetActive(true);
@@ -217,9 +232,7 @@ public class ARTapToPlace : MonoBehaviour
 
         if (isPlacementValid)
         {
-
             placementPose = hits[0].pose;
-
             var cameraForward = Camera.main.transform.forward;
             var cameraBearing = new Vector3(cameraForward.x, 0, cameraForward.z).normalized;
             placementPose.rotation = Quaternion.LookRotation(cameraBearing);
