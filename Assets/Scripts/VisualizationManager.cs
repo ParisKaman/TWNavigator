@@ -8,16 +8,14 @@ public class VisualizationManager : MonoBehaviour
     [SerializeField]
     private ARPlaneManager arPlaneManager;
     private GameObject planePrefab;
-    private LineRenderer planeLineRenderer;
     private ARPlaneMeshVisualizer planeMeshVizualizer;
 
     // Start is called before the first frame update
     void Start()
     {
         planePrefab = arPlaneManager.planePrefab;
-        planeLineRenderer = planePrefab.GetComponent<LineRenderer>();
         planeMeshVizualizer = planePrefab.GetComponent<ARPlaneMeshVisualizer>();
-        DisablePlanes();
+        EnablePlanes();
     }
 
     // Update is called once per frame
@@ -26,15 +24,18 @@ public class VisualizationManager : MonoBehaviour
 
     }
 
+    private void EnablePlanes()
+    {
+        planeMeshVizualizer.enabled = true;
+    }
+
     private void DisablePlanes()
     {
-        planeLineRenderer.enabled = false;
         planeMeshVizualizer.enabled = false;
     }
 
     private void TogglePlanes()
     {
-        planeLineRenderer.enabled = !planeLineRenderer.enabled;
         planeMeshVizualizer.enabled = !planeMeshVizualizer.enabled;
         SetAllPlanesActive(planeMeshVizualizer.enabled);
     }

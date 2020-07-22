@@ -203,6 +203,8 @@ public class ARTapToPlace : MonoBehaviour
 
     private void PlaceObject()
     {
+        TutorialManager tutorialManager = FindObjectOfType<TutorialManager>();
+        tutorialManager.HideTapToPlace();
         if(spawnedObject == null)
         {
           //instantiate objectToPlace at the placement location
