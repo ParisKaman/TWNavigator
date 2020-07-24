@@ -26,6 +26,7 @@ public class ARTapToPlace : MonoBehaviour
     public GameObject spawnedObject;
     public bool inCreateAnchor;
 
+    static RaycastHit[] s_RaycastResults = new RaycastHit[10];
 
     public CloudAnchorManager cloudAnchorManager;
     private CloudSpatialAnchor currentCloudSpatialAnchor;
@@ -249,18 +250,32 @@ public class ARTapToPlace : MonoBehaviour
 
     private void UpdatePlacementPose()
     {
+        // var hits;
+        // var screenCenter = Camera.main.ViewportToScreenPoint(new Vector3(0.5f, 0.5f));
+        // aRRaycastManager.Raycast(screenCenter, hits, TrackableType.Plane);
+        // isPlacementValid = hits.Count > 0;
+        //
+        // if (isPlacementValid)
+        // {
+        //       placementPose = hits[0].pose;
+        //       var cameraForward = Camera.main.transform.forward;
+        //       var cameraBearing = new Vector3(cameraForward.x, 0, cameraForward.z).normalized;
+        //       placementPose.rotation = Quaternion.LookRotation(cameraBearing);
+        // }
+
         var screenCenter = Camera.main.ViewportToScreenPoint(new Vector3(0.5f, 0.5f));
-        aRRaycastManager.Raycast(screenCenter, hits, TrackableType.Planes);
-        isPlacementValid = hits.Count > 0;
+        var screenRay = Camera.main.ScreenPointToRay(screenCenter);
+        int hitMask = 1 << 10;
+        var raycastHits = Physics.RaycastNonAlloc(screenRay, s_RaycastResults, Mathf.Infinity, hitMask);
+        isPlacementValid = (s_RaycastResults[0].collider != null);
 
         if (isPlacementValid)
         {
-            placementPose = hits[0].pose;
             var cameraForward = Camera.main.transform.forward;
             var cameraBearing = new Vector3(cameraForward.x, 0, cameraForward.z).normalized;
-            placementPose.rotation = Quaternion.LookRotation(cameraBearing);
-
+            Quaternion hitRotation = Quaternion.LookRotation(cameraBearing);
+            Pose hitPose = new Pose(s_RaycastResults[0].point, hitRotation);
+            placementPose = hitPose;
         }
-
     }
 }
