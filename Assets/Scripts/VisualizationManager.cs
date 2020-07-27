@@ -10,11 +10,20 @@ public class VisualizationManager : MonoBehaviour
     private GameObject planePrefab;
     private ARPlaneMeshVisualizer planeMeshVizualizer;
 
+    [SerializeField]
+    private Material defaultMaterial;
+
+    private float initialMaterialAlpha;
+
+    bool planesEnabled;
+
     // Start is called before the first frame update
     void Start()
     {
         planePrefab = arPlaneManager.planePrefab;
         planeMeshVizualizer = planePrefab.GetComponent<ARPlaneMeshVisualizer>();
+        initialMaterialAlpha = (defaultMaterial.color.a == 0) ? .33f : defaultMaterial.color.a;
+        planesEnabled = true;
         EnablePlanes();
     }
 
@@ -26,26 +35,19 @@ public class VisualizationManager : MonoBehaviour
 
     private void EnablePlanes()
     {
-        planeMeshVizualizer.enabled = true;
-    }
-
-    private void DisablePlanes()
-    {
-        planeMeshVizualizer.enabled = false;
+        Color materialColor = defaultMaterial.color;
+        materialColor.a = initialMaterialAlpha;
+        defaultMaterial.color = materialColor;
     }
 
     private void TogglePlanes()
     {
-        planeMeshVizualizer.enabled = !planeMeshVizualizer.enabled;
-        SetAllPlanesActive(planeMeshVizualizer.enabled);
-    }
+        Color materialColor = defaultMaterial.color;
+        materialColor.a = planesEnabled ? 0 : initialMaterialAlpha;
+        defaultMaterial.color = materialColor;
 
-    private void SetAllPlanesActive(bool value)
-    {
-        foreach (var plane in arPlaneManager.trackables)
-        {
-            plane.gameObject.GetComponent<ARPlaneMeshVisualizer>().enabled = value;
-        }
+        //toggle boolean
+        planesEnabled = !planesEnabled;
     }
 
     public void ToggleAllVisualizers()

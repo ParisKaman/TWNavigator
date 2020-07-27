@@ -1383,6 +1383,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arPlaneManager: {fileID: 141649735}
+  defaultMaterial: {fileID: 2100000, guid: 23e2748d52724824fb92be95f957d7dc, type: 2}
+  invisibleMaterial: {fileID: 2100000, guid: 45837c21fc2ba4c3f8d24cf07857dfd9, type: 2}
 --- !u!1 &156485807
 GameObject:
   m_ObjectHideFlags: 0
