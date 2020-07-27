@@ -13,7 +13,7 @@ public class NavigationManager : MonoBehaviour
     GameObject normalPrefab;
 
     [SerializeField]
-    GameObject krogerPrefab;
+    GameObject startPrefab;
 
     [SerializeField]
     GameObject waypoint;
