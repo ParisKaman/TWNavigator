@@ -75,7 +75,7 @@ public class NavigationManager : MonoBehaviour
             {
 
                 trackedImage.gameObject.SetActive(true);
-                if (trackedImage.referenceImage.name.Equals("kroger_logo"))
+                if (trackedImage.referenceImage.name.Equals("starter_logo"))
                 {
                     StartMarkerFound(trackedImage);
 ;               }

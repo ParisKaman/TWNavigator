@@ -16,16 +16,6 @@ MonoBehaviour:
   m_GuidHigh: 542769623938640828
   m_Images:
   - m_SerializedGuid:
-      m_GuidLow: 5620716640934729463
-      m_GuidHigh: 17598753166888920247
-    m_SerializedTextureGuid:
-      m_GuidLow: 14161822617082218796
-      m_GuidHigh: 926094332298155450
-    m_Size: {x: 1, y: 0.54068625}
-    m_SpecifySize: 1
-    m_Name: kroger_logo
-    m_Texture: {fileID: 0}
-  - m_SerializedGuid:
       m_GuidLow: 4846633269025677573
       m_GuidHigh: 15101197214895474844
     m_SerializedTextureGuid:
@@ -54,4 +44,14 @@ MonoBehaviour:
     m_Size: {x: 1, y: 0.6830065}
     m_SpecifySize: 1
     m_Name: corn
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 4678551484620784488
+      m_GuidHigh: 8533464499117486763
+    m_SerializedTextureGuid:
+      m_GuidLow: 1505831928363086407
+      m_GuidHigh: 3598320291968200139
+    m_Size: {x: 1, y: 0.9503876}
+    m_SpecifySize: 1
+    m_Name: FullMoon2010
     m_Texture: {fileID: 0}
